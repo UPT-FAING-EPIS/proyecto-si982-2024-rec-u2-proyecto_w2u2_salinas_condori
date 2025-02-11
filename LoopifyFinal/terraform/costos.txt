@@ -1,0 +1,34 @@
+[1mProject:[22m UPT-FAING-EPIS/proyecto-si982-2024-rec-u1-salinas-condori/LoopifyFinal\terraform\plan.json
+
+ [4mName[24m                                            [4mMonthly Qty[24m  [4mUnit[24m                      [4mMonthly Cost[24m   
+                                                                                                       
+ [1mazurerm_postgresql_flexible_server.db[22m                                                                 
+ [2m├─[22m Compute (B_Standard_B1ms)                            730  hours                           $14.02   
+ [2m├─[22m Storage                                               32  GB                               $4.16   
+ [2m└─[22m Additional backup storage             Monthly cost depends on usage: $0.11 per GB                  
+                                                                                                       
+ [1mazurerm_service_plan.web_plan[22m                                                                         
+ [2m└─[22m Instance usage (F1)                                  730  hours                            $0.00   
+                                                                                                       
+ [1mazurerm_storage_account.web_storage[22m                                                                   
+ [2m├─[22m Capacity                              Monthly cost depends on usage: $0.0184 per GB                
+ [2m├─[22m Write operations                      Monthly cost depends on usage: $0.05 per 10k operations      
+ [2m├─[22m List and create container operations  Monthly cost depends on usage: $0.05 per 10k operations      
+ [2m├─[22m Read operations                       Monthly cost depends on usage: $0.004 per 10k operations     
+ [2m├─[22m All other operations                  Monthly cost depends on usage: $0.004 per 10k operations     
+ [2m└─[22m Blob index                            Monthly cost depends on usage: $0.037 per 10k tags           
+                                                                                                       
+[1m OVERALL TOTAL[22m                                                                               $18.18 
+
+*Usage costs can be estimated by updating Infracost Cloud settings, see docs for other options.
+
+──────────────────────────────────
+6 cloud resources were detected:
+∙ 3 were estimated
+∙ 3 were free
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃ Project                                                          ┃ Baseline cost ┃ Usage cost* ┃ Total cost ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━╋━━━━━━━━━━━━┫
+┃ UPT-FAING-EPIS/proyecto-si982-2...opifyFinal\terraform\plan.json ┃           $18 ┃           - ┃        $18 ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━┻━━━━━━━━━━━━┛

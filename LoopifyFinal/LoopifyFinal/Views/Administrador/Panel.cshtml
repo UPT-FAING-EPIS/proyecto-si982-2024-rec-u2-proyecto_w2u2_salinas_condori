@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="text-center mb-4" style="color: #00A79D;">Gestión de Vendedores</h2>
+    <form method="post" action="/Admin/CrearVendedor">
+        <div class="mb-3">
+            <label for="nombreVendedor" class="form-label">Nombre del Vendedor</label>
+            <input type="text" class="form-control" id="nombreVendedor" name="nombreVendedor" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: #00A79D; border: none;">Crear Vendedor</button>
+    </form>
+    <ul class="list-group mt-4">
+        @foreach (var vendedor in ViewBag.Vendedores)
+        {
+            <li class="list-group-item">@vendedor</li>
+        }
+    </ul>
+</div>
