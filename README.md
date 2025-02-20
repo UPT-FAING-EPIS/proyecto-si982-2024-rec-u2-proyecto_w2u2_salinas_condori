@@ -2294,3 +2294,17 @@ graph TD;
 ```
 
 
+### DIAGRAMA DE DESPLIEGUE
+
+```mermaid
+graph TD;
+    subgraph Azure
+        A[App Service - Aplicación ASP.NET Core]
+        B[SQL Server - Base de Datos]
+    end
+
+    U[Usuario] -->|HTTPS| A
+    A -->|Conexión SQL| B
+```
+
+
