@@ -2393,7 +2393,7 @@ classDiagram
         +DateTime Fecha
         +int UsuarioId
         +Usuario Usuario
-        +ICollection<DetallePedido> Detalles
+        +ICollection~DetallePedido~ Detalles
     }
     
     class DetallePedido {
@@ -2435,13 +2435,26 @@ classDiagram
         +Subcategoria Subcategoria1
         +int? Subcategoria2Id
         +Subcategoria Subcategoria2
-        +ICollection<Producto> Productos
+        +ICollection~Producto~ Productos
     }
-
-    Usuario "1" -- "*" Pedido : realiza
-    Pedido "1" -- "*" DetallePedido : contiene
-    DetallePedido "1" -- "1" Producto : refiere
-    Negocio "1" -- "*" Producto : ofrece
-    Usuario "1" -- "*" Negocio : posee
+    
+    class Categoria {
+        +int Id
+        +string Nombre
+    }
+    
+    class Subcategoria {
+        +int Id
+        +string Nombre
+    }
+    
+    Usuario "1" --> "*" Pedido
+    Pedido "1" --> "*" DetallePedido
+    DetallePedido "*" --> "1" Producto
+    Usuario "1" --> "*" Negocio
+    Negocio "1" --> "*" Producto
+    Negocio "1" --> "1" Categoria
+    Negocio "1" --> "0..1" Subcategoria : Subcategoria1
+    Negocio "1" --> "0..1" Subcategoria : Subcategoria2
 ```
 
