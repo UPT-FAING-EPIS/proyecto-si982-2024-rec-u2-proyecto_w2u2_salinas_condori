@@ -2,8 +2,8 @@
 
 ### Enlace Repositorio : https://github.com/tomasyoel/automatizacionloopify   
 
-### Caso de Uso: Registro de Usuario 
 
+### Caso de Uso: Registro de Usuario 
 ```mermaid
 graph TB
     A[Visitante] --> B[Registrarse en Loopify]
