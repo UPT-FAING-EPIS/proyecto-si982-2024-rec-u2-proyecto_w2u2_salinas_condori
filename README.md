@@ -2376,3 +2376,72 @@ erDiagram
     Productos ||--o{ DetallesPedidos : "contiene"
 ```
 
+### DIAGRAMA DE OBJETOS 
+
+```mermaid
+classDiagram
+    class Usuario {
+        +int Id
+        +string Nombre
+        +string Correo
+        +string Password
+        +string Rol
+    }
+    
+    class Pedido {
+        +int Id
+        +DateTime Fecha
+        +int UsuarioId
+        +Usuario Usuario
+        +ICollection<DetallePedido> Detalles
+    }
+    
+    class DetallePedido {
+        +int Id
+        +int PedidoId
+        +Pedido Pedido
+        +int ProductoId
+        +Producto Producto
+        +int Cantidad
+        +double Precio
+    }
+    
+    class Producto {
+        +int Id
+        +string Nombre
+        +double PrecioOriginal
+        +double PrecioDescuento
+        +bool PorExpirar
+        +DateTime? FechaExpiracion
+        +string Imagen
+        +int NegocioId
+        +Negocio Negocio
+        +string Descripcion
+    }
+    
+    class Negocio {
+        +int Id
+        +string Nombre
+        +string Descripcion
+        +string Direccion
+        +string Ubicacion
+        +string Logo
+        +string Banner
+        +int UsuarioId
+        +Usuario Usuario
+        +int CategoriaId
+        +Categoria Categoria
+        +int? Subcategoria1Id
+        +Subcategoria Subcategoria1
+        +int? Subcategoria2Id
+        +Subcategoria Subcategoria2
+        +ICollection<Producto> Productos
+    }
+
+    Usuario "1" -- "*" Pedido : realiza
+    Pedido "1" -- "*" DetallePedido : contiene
+    DetallePedido "1" -- "1" Producto : refiere
+    Negocio "1" -- "*" Producto : ofrece
+    Usuario "1" -- "*" Negocio : posee
+```
+
