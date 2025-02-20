@@ -2166,6 +2166,76 @@ sequenceDiagram
     end
 ```
 
+### DIAGRAMA DE CLASES
 
+```mermaid
+classDiagram
+    class Usuario {
+        +int Id
+        +string Nombre
+        +string Correo
+        +string Password
+        +string Rol
+    }
 
+    class Negocio {
+        +int Id
+        +string Nombre
+        +string Descripcion
+        +string Direccion
+        +string Ubicacion
+        +string Logo
+        +string Banner
+        +int UsuarioId
+        +int CategoriaId
+        +int? Subcategoria1Id
+        +int? Subcategoria2Id
+    }
+
+    class Producto {
+        +int Id
+        +string Nombre
+        +double PrecioOriginal
+        +double PrecioDescuento
+        +bool PorExpirar
+        +DateTime? FechaExpiracion
+        +string Imagen
+        +int NegocioId
+        +string Descripcion
+    }
+
+    class Pedido {
+        +int Id
+        +DateTime Fecha
+        +int UsuarioId
+    }
+
+    class DetallePedido {
+        +int Id
+        +int PedidoId
+        +int ProductoId
+        +int Cantidad
+        +double Precio
+    }
+
+    class Categoria {
+        +int Id
+        +string Nombre
+    }
+
+    class Subcategoria {
+        +int Id
+        +string Nombre
+    }
+
+    %% Relaciones entre clases
+    Usuario "1" --> "0..*" Negocio : Posee
+    Negocio "1" --> "0..*" Producto : Ofrece
+    Negocio "1" --> "1" Categoria : Pertenece
+    Negocio "1" --> "0..1" Subcategoria : Tiene (Opcional)
+    Producto "1" --> "0..*" DetallePedido : Contiene
+    Pedido "1" --> "0..*" DetallePedido : Tiene
+    Pedido "1" --> "1" Usuario : Realizado por
+    DetallePedido "1" --> "1" Producto : Incluye
+```
 
