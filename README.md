@@ -2458,3 +2458,7 @@ classDiagram
     Negocio "1" --> "0..1" Subcategoria : Subcategoria2
 ```
 
+### DIAGRAMA DE ACTIVIDADES 
+
+![image](https://github.com/user-attachments/assets/2b710544-d1f8-4771-8ff1-f6311ce74d9c)
+
