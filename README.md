@@ -2307,4 +2307,72 @@ graph TD;
     A -->|Conexión SQL| B
 ```
 
+### DIAGRAMA RELACIONAL BASE DE DATOS
+
+```mermaid
+erDiagram
+    Usuarios {
+        int UsuarioID PK
+        string Nombre
+        string Apellido
+        string Email
+        string PasswordHash
+        string Rol
+        datetime FechaRegistro
+    }
+    
+    Negocios {
+        int NegocioID PK
+        string Nombre
+        string Direccion
+        string Telefono
+        string Email
+        int UsuarioID FK
+    }
+    
+    Categorias {
+        int CategoriaID PK
+        string Nombre
+    }
+    
+    Subcategorias {
+        int SubcategoriaID PK
+        string Nombre
+        int CategoriaID FK
+    }
+    
+    Productos {
+        int ProductoID PK
+        string Nombre
+        string Descripcion
+        decimal Precio
+        int Stock
+        int NegocioID FK
+        int SubcategoriaID FK
+    }
+    
+    Pedidos {
+        int PedidoID PK
+        datetime FechaPedido
+        decimal Total
+        string Estado
+        int UsuarioID FK
+    }
+    
+    DetallesPedidos {
+        int DetalleID PK
+        int PedidoID FK
+        int ProductoID FK
+        int Cantidad
+        decimal PrecioUnitario
+    }
+    
+    Usuarios ||--o{ Negocios : "posee"
+    Categorias ||--o{ Subcategorias : "tiene"
+    Subcategorias ||--o{ Productos : "contiene"
+    Negocios ||--o{ Productos : "vende"
+    Usuarios ||--o{ Pedidos : "realiza"
+    Pedidos ||--o{ DetallesPedidos : "incluye"
+    Productos ||--o{ DetallesPedidos : "contiene"
+```
 
