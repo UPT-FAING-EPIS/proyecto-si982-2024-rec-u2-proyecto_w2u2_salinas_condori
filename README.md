@@ -2066,6 +2066,105 @@ sequenceDiagram
 ```
 
 
+Diagrama de secuencia: Flujo de suscripción y notificación por correo electrónico
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant API_Notificaciones
+    participant BaseDatos
+    participant Servicio_Correo
+
+    Cliente->>API_Notificaciones: Solicita suscripción a una categoría de productos
+    API_Notificaciones->>BaseDatos: Almacena suscripción del cliente
+    BaseDatos-->>API_Notificaciones: Confirmación de suscripción
+    API_Notificaciones->>Servicio_Correo: Envía solicitud de notificación
+    Servicio_Correo-->>Cliente: Recibe correo con nuevos productos
+```
+
+Control de notificaciones cuando el vendedor desactiva un producto
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant API_Notificaciones
+    participant Vendedor
+    participant BaseDatos
+
+    Cliente->>API_Notificaciones: Se suscribe a un producto
+    API_Notificaciones->>BaseDatos: Registra suscripción del cliente
+    BaseDatos-->>API_Notificaciones: Confirmación de suscripción
+    Vendedor->>API_Notificaciones: Desactiva notificaciones del producto
+    API_Notificaciones->>BaseDatos: Marca notificaciones como deshabilitadas
+    BaseDatos-->>API_Notificaciones: Confirmación de desactivación
+    Cliente->>API_Notificaciones: No recibe notificación del producto desactivado
+```
+
+Envío de notificación con detalles del producto
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant API_Notificaciones
+    participant Servicio_Correo
+
+    API_Notificaciones->>Servicio_Correo: Genera email con detalles (nombre, precio, fecha)
+    Servicio_Correo-->>Cliente: Recibe email con información estructurada
+```
+
+Cliente elige cómo recibir notificaciones
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant API_Notificaciones
+    participant BaseDatos
+
+    Cliente->>API_Notificaciones: Selecciona tipo de notificación (correo, SMS o ambos)
+    API_Notificaciones->>BaseDatos: Guarda preferencias del usuario
+    BaseDatos-->>API_Notificaciones: Confirmación de preferencias
+    API_Notificaciones->>Cliente: Confirma configuración de notificación
+```
+
+Notificaciones con enlaces directos al producto
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant API_Notificaciones
+    participant Servicio_Correo
+
+    API_Notificaciones->>Servicio_Correo: Genera mensaje con enlace al producto
+    Servicio_Correo-->>Cliente: Recibe notificación con acceso directo al producto
+```
+
+Enviar notificaciones en menos de 1 minuto
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant API_Notificaciones
+    participant Servicio_Correo
+
+    Cliente->>API_Notificaciones: Se suscribe a notificaciones
+    API_Notificaciones->>Servicio_Correo: Procesa envío de notificación
+    alt Si la notificación se envía en menos de 1 minuto
+        Servicio_Correo-->>Cliente: Recibe notificación correctamente
+    else Si hay retraso
+        API_Notificaciones->>Cliente: Muestra error "Notificación retrasada"
+    end
+```
+
+Manejar hasta 100 notificaciones por minuto
+```mermaid
+sequenceDiagram
+    participant Admin
+    participant API_Notificaciones
+    participant Servicio_Correo
+
+    Admin->>API_Notificaciones: Activa el sistema de notificaciones
+    API_Notificaciones->>Servicio_Correo: Procesa y envía notificaciones
+    alt Si hay menos de 100 notificaciones por minuto
+        Servicio_Correo-->>Cliente: Notificaciones entregadas sin retraso
+    else Si hay más de 100 notificaciones por minuto
+        API_Notificaciones->>Servicio_Correo: Distribuye carga y gestiona la cola de envío
+        Servicio_Correo-->>Cliente: Todas las notificaciones entregadas correctamente
+    end
+```
 
 
 
