@@ -2239,3 +2239,58 @@ classDiagram
     DetallePedido "1" --> "1" Producto : Incluye
 ```
 
+### DIAGRAMA DE PAQUETES: 
+
+```mermaid
+graph TD;
+    subgraph LoopifyFinal
+        subgraph App_Start
+            BundleConfig[BundleConfig.cs]
+            FilterConfig[FilterConfig.cs]
+            RouteConfig[RouteConfig.cs]
+        end
+        
+        subgraph Assets
+            CSS[css]
+            JS[js]
+            Images[banner.jpg, lecheentera.jpg, LoppifyLogo.png, etc.]
+        end
+        
+        subgraph Content
+        end
+        
+        subgraph Controllers
+            AdministradorController[AdministradorController.cs]
+            ClienteController[ClienteController.cs]
+            CuentaController[CuentaController.cs]
+            VendedorController[VendedorController.cs]
+        end
+        
+        subgraph Migrations
+        end
+        
+        subgraph Models
+            Categoria[Categoria.cs]
+            DbContext[DbContext.cs]
+            DetallePedido[DetallePedido.cs]
+            Negocio[Negocio.cs]
+            Pedido[Pedido.cs]
+            Producto[Producto.cs]
+            Subcategoria[Subcategoria.cs]
+            Usuario[Usuario.cs]
+        end
+        
+        subgraph Scripts
+        end
+        
+        subgraph Views
+            Administrador[Administrador]
+            Cliente[Cliente]
+            Cuenta[Cuenta]
+            Shared[Shared]
+            Vendedor[Vendedor]
+        end
+    end
+```
+
+
