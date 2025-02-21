@@ -4,20 +4,23 @@
 
 ## Introduccion
 
-.1 Definición del problema
+### .1 Definición del problema
 En el mundo actual, el desperdicio de productos perecederos y no perecederos es un problema significativo. Tiendas y consumidores enfrentan el reto de manejar inventarios que incluyen productos próximos a su fecha de vencimiento, lo que genera pérdidas económicas y un impacto ambiental negativo. Este problema afecta tanto a los negocios, que no logran optimizar sus ventas, como a los consumidores, que podrían aprovechar ofertas en productos aún útiles.
 
-1.2 Objetivo general y específicos
+### 1.2 Objetivo general y específicos
 Objetivo general:
 Desarrollar una aplicación web llamada Loopify que permita a los usuarios adquirir productos próximos a su fecha de vencimiento a precios reducidos, promoviendo el ahorro y la reducción del desperdicio.
 
-Objetivos específicos:
+### Objetivos específicos:
 
 Crear una plataforma intuitiva que conecte consumidores con negocios que ofrecen productos cercanos a su fecha de expiración.
 Facilitar a los negocios un canal para optimizar la venta de inventarios sobrantes.
 Contribuir a la sostenibilidad ambiental mediante la reducción de desperdicios.
 Ofrecer categorías diferenciadas para alimentos, abarrotes y otros productos, ajustadas a las necesidades de los usuarios.
-1.3 Alcance
+
+
+### 1.3 Alcance
+
 Loopify estará diseñado inicialmente para operar exclusivamente en la ciudad de Tacna, conectando a pequeños comercios y usuarios finales. La aplicación incluirá funcionalidades como búsqueda por categorías, filtros por ubicación, notificación de descuentos y métodos de pago integrados. Se enfocará en productos alimenticios y no alimenticios que estén por vencer, expandiéndose progresivamente a otras categorías según la demanda del mercado.
 
 ### Caso de Uso: Registro de Usuario 
